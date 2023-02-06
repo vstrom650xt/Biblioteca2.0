@@ -1,11 +1,13 @@
-package org.example;
+package org.example.listas;
 
-public class LinkedList {
-    private Node head;
-    private  Node tail;
+import org.example.Publicacion;
+
+public  class LinkedListPublicacion {
+    private NodePublicacion head;
+    private NodePublicacion tail;
     private int size;
 
-    public LinkedList(){
+    public LinkedListPublicacion(){
 
 
 
@@ -15,12 +17,12 @@ public class LinkedList {
 
     }
 
-    public  Node getHead(){
+    public NodePublicacion getHead(){
         return head;
 
     }
 
-    public Node getTail(){
+    public NodePublicacion getTail(){
         return tail;
     }
 
@@ -31,30 +33,30 @@ public class LinkedList {
 
 
     public  void addHead(Publicacion element){
-        Node node= new Node(element);
+        NodePublicacion nodePublicacion = new NodePublicacion(element);
 
 
         if (isEmpty()){
-            head= node ;
-            tail= node;
+            head= nodePublicacion;
+            tail= nodePublicacion;
         }else{
 
-            node.setNext(head);
-            head=node;
+            nodePublicacion.setNext(head);
+            head= nodePublicacion;
         }
         size++;
 
     }
     public  void addTail(Publicacion element){
-        Node node= new Node(element);
+        NodePublicacion nodePublicacion = new NodePublicacion(element);
 
 
         if (isEmpty()){
-            head= node ;
-            tail= node;
+            head= nodePublicacion;
+            tail= nodePublicacion;
         }else{
-            tail.setNext(node);
-            head=node;
+            tail.setNext(nodePublicacion);
+            head= nodePublicacion;
 
         }
 
@@ -66,12 +68,12 @@ public class LinkedList {
         int result = -1;
         if(isEmpty())
             return result;
-        Node node = head;
+        NodePublicacion nodePublicacion = head;
 
         for (int j = 0; j < size; j++) {
-            if (node.getPublicacion()==element)
+            if (nodePublicacion.getPublicacion()==element)
                 return j;
-            node = node.getNext();
+            nodePublicacion = nodePublicacion.getNext();
         }
 
         return result;
@@ -79,12 +81,12 @@ public class LinkedList {
 
     public Publicacion [] toArray(){
         Publicacion []vector = new Publicacion[size];
-        Node node =head;
+        NodePublicacion nodePublicacion =head;
 
 
         for (int i = 0; i < size; i++) {
-            vector[i] = node.getPublicacion();
-            node = node.getNext();
+            vector[i] = nodePublicacion.getPublicacion();
+            nodePublicacion = nodePublicacion.getNext();
 
         }
         return  vector;
@@ -97,20 +99,20 @@ public class LinkedList {
         if (isEmpty()|| index<0 || index >= size) {
             return null;
         }
-        Node node =null;
+        NodePublicacion nodePublicacion =null;
         if (index==0){
-            result= head.getElement();
+            result= head.getPublicacion().getNumPag();
             head= head.getNext();
         }else {
-            Node aux = head;
-            Node aux2 = head.getNext();
+            NodePublicacion aux = head;
+            NodePublicacion aux2 = head.getNext();
 
             while (index>1){
                 aux= aux2;
                 aux2 = aux2.getNext();
                 index--;
             }
-            result = aux2.getElement();
+            result = aux2.getPublicacion().getNumPag();
             aux.setNext(aux2.getNext());
         }
         size--;

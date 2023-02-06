@@ -6,6 +6,7 @@ public class Ejemplar {
 
     private int codigo;
     private int cantidad;
+    // cambiar por lista
     private Abonado [] abonados;
 
     public Ejemplar(int codigo, int cantidad, Abonado ... abonados) {

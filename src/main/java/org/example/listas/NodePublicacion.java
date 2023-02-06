@@ -1,22 +1,24 @@
-package org.example;
+package org.example.listas;
 
-public class Node <E>{
+import org.example.Publicacion;
+
+public class NodePublicacion{
 
     private Publicacion publicacion;
-    private Node next;
+    private NodePublicacion next;
 
 
-    public Node(){
+    public NodePublicacion(){
 
 
 
     }
-    public Node(Publicacion publicacion){
+    public NodePublicacion(Publicacion publicacion){
         this.publicacion = publicacion;
         this.next =null;
 
     }
-    public Node(Publicacion publicacion, Node next){
+    public NodePublicacion(Publicacion publicacion, NodePublicacion next){
         this.publicacion = publicacion;
         this.next=next;
     }
@@ -29,11 +31,11 @@ public class Node <E>{
         this.publicacion = publicacion;
     }
 
-    public Node getNext() {
+    public NodePublicacion getNext() {
         return next;
     }
 
-    public void setNext(Node next) {
+    public void setNext(NodePublicacion next) {
         this.next = next;
     }
 
