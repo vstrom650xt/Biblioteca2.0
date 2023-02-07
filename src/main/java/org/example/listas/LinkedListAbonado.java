@@ -1,13 +1,15 @@
 package org.example.listas;
 
+
+import org.example.Abonado;
 import org.example.Ejemplar;
 
-public class LinkedListEjemplar  {
-    private NodeEjemplar head;
-    private NodeEjemplar tail;
+public class LinkedListAbonado  {
+    private NodeAbonado head;
+    private NodeAbonado tail;
     private int size;
 
-    public LinkedListEjemplar(){
+    public LinkedListAbonado(){
 
 
 
@@ -16,13 +18,13 @@ public class LinkedListEjemplar  {
         return size;
 
     }
-//NodeEmplar
-    public NodeEjemplar getHead(){
+    //NodeEmplar
+    public NodeAbonado getHead(){
         return head;
 
     }
 
-    public NodeEjemplar getTail(){
+    public NodeAbonado getTail(){
         return tail;
     }
 
@@ -32,31 +34,31 @@ public class LinkedListEjemplar  {
     }
 
 
-    public  void addHead(Ejemplar element){
-        NodeEjemplar nodeEjemplar = new NodeEjemplar(element);
+    public  void addHead(Abonado element){
+        NodeAbonado nodeAbonado = new NodeAbonado(element);
 
 
         if (isEmpty()){
-            head= nodeEjemplar;
-            tail= nodeEjemplar;
+            head= nodeAbonado;
+            tail= nodeAbonado;
         }else{
 
-            nodeEjemplar.setNext(head);
-            head= nodeEjemplar;
+            nodeAbonado.setNext(head);
+            head= nodeAbonado;
         }
         size++;
 
     }
-    public  void addTail(Ejemplar element){
-        NodeEjemplar nodeEjemplar = new NodeEjemplar(element);
+    public  void addTail(Abonado element){
+        NodeAbonado nodeAbonado = new NodeAbonado(element);
 
 
         if (isEmpty()){
-            head= nodeEjemplar;
-            tail= nodeEjemplar;
+            head= nodeAbonado;
+            tail= nodeAbonado;
         }else{
-            tail.setNext(nodeEjemplar);
-            head= nodeEjemplar;
+            tail.setNext(nodeAbonado);
+            head= nodeAbonado;
 
         }
 
@@ -64,20 +66,20 @@ public class LinkedListEjemplar  {
 
     // se ponen wrapper para evitar los nulls
 
-    public int search(Ejemplar element){
-        int result = -1;
-        if(isEmpty())
-            return result;
-        NodeEjemplar nodeEjemplar = head;
-
-        for (int j = 0; j < size; j++) {
-            if (nodeEjemplar.getEjemplar()==element)
-                return j;
-            nodeEjemplar = nodeEjemplar.getNext();
-        }
-
-        return result;
-    }
+//    public int search(Ejemplar element){
+//        int result = -1;
+//        if(isEmpty())
+//            return result;
+//        NodeAbonado nodeAbonado = head;
+//
+//        for (int j = 0; j < size; j++) {
+//            if (nodeAbonado.getEjemplar()==element)
+//                return j;
+//            nodeAbonado = nodeAbonado.getNext();
+//        }
+//
+//        return result;
+//    }
 
 //    public Publicacion [] toArray(){
 //        Publicacion []vector = new Publicacion[size];
@@ -104,15 +106,15 @@ public class LinkedListEjemplar  {
             //result= head.getEjemplar();
             head= head.getNext();
         }else {
-            NodeEjemplar aux = head;
-            NodeEjemplar aux2 = head.getNext();
+            NodeAbonado aux = head;
+            NodeAbonado aux2 = head.getNext();
 
             while (index>1){
                 aux= aux2;
                 aux2 = aux2.getNext();
                 index--;
             }
-            result = aux2.getEjemplar().getCodigo();
+            //result = aux2.getAbonado().getCodigo();
             aux.setNext(aux2.getNext());
         }
         size--;

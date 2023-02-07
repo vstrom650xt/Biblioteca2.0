@@ -27,8 +27,7 @@ public abstract class Publicacion {
 
     @Override
     public String toString() {
-        return "Folios{" +
-                "editorial='" + editorial + '\'' +
+        return  "editorial='" + editorial + '\'' +
                 ", numPag=" + numPag +
                 ", color=" + color +
                 '}';
