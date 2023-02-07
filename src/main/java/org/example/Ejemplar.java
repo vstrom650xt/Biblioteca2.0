@@ -1,19 +1,16 @@
 package org.example;
 
-import org.example.listas.LinkedListAbonado;
-import org.example.listas.LinkedListEjemplar;
-
-import java.util.Arrays;
+import org.example.listas.generics.LinkedList;
 
 public class Ejemplar {
 
     private int codigo;
     // cambiar por lista
-    private LinkedListAbonado listAbonado;
+    private LinkedList listAbonado;
 
     public Ejemplar(int codigo) {
-        this.listAbonado = new LinkedListAbonado();
-        this.codigo =codigo ;
+        this.listAbonado = new LinkedList();
+        this.codigo =codigo;
     }
 
     public void showCodigos(){
@@ -36,7 +33,7 @@ public class Ejemplar {
 
         return  codigo;
     }
-    public LinkedListAbonado addAbonado(Abonado a ){
+    public LinkedList addAbonado(Abonado a ){
 
         listAbonado.addHead(a);
         return listAbonado;

@@ -20,16 +20,6 @@ public class Prueba {
         harryPotter.fillLista(5);
 
 
-        NodeEjemplar n = harryPotter.getListaEjemplares().getHead();
-  //      System.out.println(n);
-        for (int i = 0; i < 4; i++) {
-            System.out.println(n.getEjemplar().getCodigo());
-            n=n.getNext();
-        //   System.out.println(harryPotter.getListaEjemplares().size());
-
-        }
- //       System.out.println(harryPotter.getListSize());
-  //      System.out.println();
 
 
 
