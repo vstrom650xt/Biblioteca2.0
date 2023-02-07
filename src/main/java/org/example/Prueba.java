@@ -22,8 +22,5 @@ public class Prueba {
         System.out.println(harryPotter);
         System.out.println(hp.getCodigo());
         System.out.println(hp2.getCodigo());
-
-
-
     }
 }

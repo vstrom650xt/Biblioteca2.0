@@ -11,7 +11,7 @@ public class Ejemplar {
     // cambiar por lista
     private LinkedListAbonado listAbonado;
 
-    public Ejemplar( ) {
+    public Ejemplar() {
         this.codigo = increaseCod();
         this.listAbonado = new LinkedListAbonado();
     }
