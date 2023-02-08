@@ -1,6 +1,6 @@
 package org.example.listas;
 
-import org.example.Ejemplar;
+import org.example.model.Ejemplar;
 
 public class NodeEjemplar{
 

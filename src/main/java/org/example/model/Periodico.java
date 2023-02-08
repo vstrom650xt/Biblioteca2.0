@@ -1,4 +1,4 @@
-package org.example;
+package org.example.model;
 
 public class Periodico extends Publicacion {
 

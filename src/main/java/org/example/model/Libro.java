@@ -1,4 +1,4 @@
-package org.example;
+package org.example.model;
 
 import org.example.listas.LinkedListEjemplar;
 
@@ -14,7 +14,7 @@ public class Libro extends Publicacion  {
         super(editorial, numPag, color);
         this.autor = autor;
         this.titulo = titulo;
-        this.ISBN =ISBN; ///ESTO NO SE PORQ ME LO HA CAMBIADO
+        this.ISBN =ISBN;
         this.listaEjemplares = new LinkedListEjemplar();
     }
 
@@ -24,22 +24,7 @@ public class Libro extends Publicacion  {
     }
 
 
-//    public LinkedListEjemplar getCodigos() {
-//        int ultimo = 0;
-//        for (int i = 0; i < lista.size(); i++) {
-//
-//        }
-//        return ;
-//    }
 
-    //    public int getCodigosEjemplar() {
-//        //Ejemplar p = null;
-//        for (int i = 0; i < lista.size(); i++) {
-//
-//
-//        }
-//        return null;
-//    }
     public LinkedListEjemplar fillLista(int num) {
         for (int i = 0; i <num; i++) {
            listaEjemplares.addTail( new Ejemplar(listaEjemplares.size()+1));

@@ -1,8 +1,7 @@
 package org.example.listas;
 
 
-import org.example.Abonado;
-import org.example.Ejemplar;
+import org.example.model.Abonado;
 
 public class LinkedListAbonado  {
     private NodeAbonado head;

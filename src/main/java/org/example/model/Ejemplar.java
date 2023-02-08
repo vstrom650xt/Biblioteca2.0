@@ -1,4 +1,4 @@
-package org.example;
+package org.example.model;
 
 import org.example.listas.generics.LinkedList;
 
@@ -8,31 +8,28 @@ public class Ejemplar {
     // cambiar por lista
     private LinkedList listAbonado;
 
+    private Libro libro;
+
     public Ejemplar(int codigo) {
         this.listAbonado = new LinkedList();
         this.codigo =codigo;
-    }
-
-    public void showCodigos(){
-        for (int i = 0; i < listAbonado.size(); i++) {
-            System.out.println(codigo);
-
-        }
-
-
-
 
     }
 
-    public int increaseCod(){
-        if (listAbonado.size()==0){
-            codigo=1;
-        }else{
-            codigo = listAbonado.size()+1;
-        }
 
-        return  codigo;
+    public LinkedList getListAbonado() {
+        return listAbonado;
     }
+
+    //    public int increaseCod(){
+//        if (getLibro()==0){
+//            codigo=1;
+//        }else{
+//            codigo = listAbonado.size()+1;
+//        }
+//
+//        return  codigo;
+//    }
     public LinkedList addAbonado(Abonado a ){
 
         listAbonado.addHead(a);

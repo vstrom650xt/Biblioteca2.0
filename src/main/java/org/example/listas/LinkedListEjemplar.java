@@ -1,6 +1,6 @@
 package org.example.listas;
 
-import org.example.Ejemplar;
+import org.example.model.Ejemplar;
 
 public class LinkedListEjemplar  {
     private NodeEjemplar head;
@@ -34,31 +34,26 @@ public class LinkedListEjemplar  {
 
     public  void addHead(Ejemplar element){
         NodeEjemplar nodeEjemplar = new NodeEjemplar(element);
-
-
         if (isEmpty()){
             head= nodeEjemplar;
             tail= nodeEjemplar;
         }else{
-
             nodeEjemplar.setNext(head);
             head= nodeEjemplar;
         }
         size++;
-
     }
     public  void addTail(Ejemplar element){
         NodeEjemplar nodeEjemplar = new NodeEjemplar(element);
-
-
         if (isEmpty()){
             head= nodeEjemplar;
             tail= nodeEjemplar;
         }else{
             tail.setNext(nodeEjemplar);
-            head= nodeEjemplar;
+            tail= nodeEjemplar;
 
         }
+        size++;
 
     }
 
