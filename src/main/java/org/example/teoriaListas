@@ -1,0 +1,62 @@
+3 interfaces NO SE PUEDE INSTANCIAR UNA INTERFAZ | las interfaces se implementan
+    -list(conjunto ordenado de elementos, acceso posicional, 2 formasa de iterar , el for  y iterator)=admite repeditos , hereda de colecion
+        *arrayList(basada en array) =
+        *linkedList usar cuando va aceder y decrecer rapidamente
+
+        si vas a modificar  las listas mientras la recorres tiene que ser con un iterator (se puede usar en todo tipo de listas)
+        sino no hace falta , borras primero y luegp el for para mostrarla, el iterator no se puede usar en el FOR
+        ejemplo
+
+        List <Carta> myList = new LinkedList();
+        Iterator <Carta> itarator = mylist.listIterator();
+                Iterator<Carta> iterator = myList.Iterator();
+                Clase c;
+                while (iterator.hasNext()){
+                    c=iterator.next();
+                    if(c.getValor()==Valor.A)
+                        iterator.remove();
+                }
+                System.out.println(myList);
+
+
+//declaracion
+        List <Integer> myList = new ArrayList();
+        List <Integer> myList = new LinkedList();
+
+    -set (conjunto)=no repetidos
+
+         *hashset (mas eficiente , pero no se puede asegurar el orden en el que se van a mostrar)
+                -Obligatorio redefinir el equals , por que sino coge la direccion de memoria
+                -Obligatorio redefinir el hashcode
+
+
+    *linkedhashset(unpoco menos eficiente, se usa para asegurar el orden, se puede recuperar en el orden que introdujimos)
+        -
+
+    *treeset(muy eficiente en busquedas, mala para hacer inserciones y borrar)
+     -ordena automaticamente
+
+     -NO EQUALS , NO HASCODE
+
+     -Comparable(interfaz funcional , solo tienen una funcion, no se puede instanciar) este se implementa en la clase con implements
+     -CompareTo(recibe algo y devuelve un entero, hay que redefinirlo)
+
+
+
+     //basarse en el tipo de lista que necesitas en el momento
+//values y ordinal son metodos de los enums , el ordinal devuelve la posicion del elemento en el enum , y values un array del contenido del enum
+
+
+
+
+
+        //declaracion
+        Set <Integer> mySet= new HashSet();
+
+
+
+    -map(diccionario)=llave valor
+
+//LAMBDA
+
+compareTor

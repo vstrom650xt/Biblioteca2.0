@@ -18,8 +18,8 @@ public class Libro extends Publicacion  {
         this.listaEjemplares = new LinkedList<>();//cuidao con el <>
     }
 
-
-    public LinkedList getListaEjemplares() {
+//ESPEFICAR Q TIPO DE LISTA DEVUELVE
+    public LinkedList<Ejemplar> getListaEjemplares() {
         return listaEjemplares;
     }
 

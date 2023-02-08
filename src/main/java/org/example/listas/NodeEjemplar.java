@@ -31,11 +31,11 @@ import org.example.model.Ejemplar;
         this.ejemplar = ejemplar;
     }
 
-    public NodeEjemplar getNext() {
+    public NodeEjemplar<T> getNext() {
         return next;
     }
 
-    public void setNext(NodeEjemplar next) {
+    public void setNext(NodeEjemplar<T> next) {
         this.next = next;
     }
 }

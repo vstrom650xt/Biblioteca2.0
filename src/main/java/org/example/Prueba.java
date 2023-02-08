@@ -20,7 +20,7 @@ public class Prueba {
 //
         harryPotter.fillLista(5);
         Ejemplar a = (Ejemplar) harryPotter.getListaEjemplares().get(3);
-        ((Ejemplar) harryPotter.getListaEjemplares().get(2)).addAbonado(ptt);
+        harryPotter.getListaEjemplares().get(2).addAbonado(ptt);
         for (int i = 1; i <= harryPotter.getListSize(); i++) {
             System.out.println("codigo de inicio "+harryPotter.getListaEjemplares().get(i));
 
