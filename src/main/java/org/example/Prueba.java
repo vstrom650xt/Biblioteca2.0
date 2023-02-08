@@ -1,7 +1,6 @@
 package org.example;
 
 import org.example.listas.LinkedListPublicacion;
-import org.example.listas.NodeEjemplar;
 import org.example.model.Abonado;
 import org.example.model.Libro;
 import org.w3c.dom.Node;
@@ -26,13 +25,13 @@ public class Prueba {
 //            harryPotter.getListaEjemplares().getHead().getNext().getEjemplar().getCodigo();
 //
 //        }
-        NodeEjemplar n=    harryPotter.getListaEjemplares().getHead();
-
-        for (int i = 0; i < harryPotter.getListSize(); i++) {
-            System.out.println(n.getEjemplar());
-            n=n.getNext();
-
-        }
+//        NodeEjemplar n=    harryPotter.getListaEjemplares().getHead();
+//
+//        for (int i = 0; i < harryPotter.getListSize(); i++) {
+//            System.out.println(n.getEjemplar());
+//            n=n.getNext();
+//
+//        }
        // harryPotter.getListaEjemplares().getHead().getEjemplar().addAbonado(ptt);
   //     System.out.println(harryPotter.getListaEjemplares().getHead().getEjemplar().getListAbonado());
 
@@ -40,9 +39,13 @@ public class Prueba {
 
    //     System.out.println(harryPotter.getListaEjemplares().getHead().getEjemplar());
 
-        System.out.println("codigo de inicio "+harryPotter.getListaEjemplares().getHead().getEjemplar().getCodigo());
+//        for (int i = 0; i < harryPotter.getListSize(); i++) {
+//            System.out.println("codigo de inicio "+harryPotter.getListaEjemplares().get(i));
+//
+//        }
+        System.out.println("codigo de inicio "+harryPotter.getListaEjemplares().get(6));
 
-        System.out.println("tamano lista ejemplares "+harryPotter.getListaEjemplares().size());
+     //   System.out.println("tamano lista ejemplares "+harryPotter.getListaEjemplares().size());
 
 
 

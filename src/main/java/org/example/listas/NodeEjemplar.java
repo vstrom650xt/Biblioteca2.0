@@ -2,10 +2,10 @@ package org.example.listas;
 
 import org.example.model.Ejemplar;
 
-public class NodeEjemplar{
+ class NodeEjemplar<T>{
 
-    private Ejemplar ejemplar;
-    private NodeEjemplar next;
+    private T ejemplar;
+    private NodeEjemplar<T> next;
 
 
     public NodeEjemplar(){
@@ -13,21 +13,21 @@ public class NodeEjemplar{
 
 
     }
-    public NodeEjemplar(Ejemplar ejemplar){
+    public NodeEjemplar(T ejemplar){
         this.ejemplar = ejemplar;
         this.next =null;
 
     }
-    public NodeEjemplar(Ejemplar ejemplar, NodeEjemplar next){
+    public NodeEjemplar(T ejemplar, NodeEjemplar next){
         this.ejemplar = ejemplar;
         this.next=next;
     }
 
-    public Ejemplar getEjemplar() {
+    public T getEjemplar() {
         return ejemplar;
     }
 
-    public void setEjemplar(Ejemplar ejemplar) {
+    public void setEjemplar(T ejemplar) {
         this.ejemplar = ejemplar;
     }
 

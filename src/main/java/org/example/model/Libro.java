@@ -1,13 +1,13 @@
 package org.example.model;
 
-import org.example.listas.LinkedListEjemplar;
+import org.example.listas.LinkedList;
 
 public class Libro extends Publicacion  {
     private String autor,titulo;
     // si es estatico no me deja meterlo en el constructor
     private  String ISBN;
 
-    private LinkedListEjemplar listaEjemplares;
+    private LinkedList<Ejemplar> listaEjemplares;
 
 
     public Libro(String editorial, int numPag, boolean color, String autor, String titulo, String ISBN) {
@@ -15,17 +15,17 @@ public class Libro extends Publicacion  {
         this.autor = autor;
         this.titulo = titulo;
         this.ISBN =ISBN;
-        this.listaEjemplares = new LinkedListEjemplar();
+        this.listaEjemplares = new LinkedList<>();//cuidao con el <>
     }
 
 
-    public LinkedListEjemplar getListaEjemplares() {
+    public LinkedList getListaEjemplares() {
         return listaEjemplares;
     }
 
 
 
-    public LinkedListEjemplar fillLista(int num) {
+    public LinkedList fillLista(int num) {
         for (int i = 0; i <num; i++) {
            listaEjemplares.addTail( new Ejemplar(listaEjemplares.size()+1));
 

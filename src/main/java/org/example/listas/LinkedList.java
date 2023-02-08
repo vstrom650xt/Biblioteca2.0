@@ -1,13 +1,16 @@
 package org.example.listas;
 
 import org.example.model.Ejemplar;
+import org.w3c.dom.Node;
 
-public class LinkedListEjemplar  {
-    private NodeEjemplar head;
-    private NodeEjemplar tail;
+import java.lang.reflect.Array;
+
+public class LinkedList <T>{
+    private NodeEjemplar<T>  head;
+    private NodeEjemplar<T> tail;
     private int size;
 
-    public LinkedListEjemplar(){
+    public LinkedList(){
 
 
 
@@ -74,43 +77,74 @@ public class LinkedListEjemplar  {
         return result;
     }
 
-//    public Publicacion [] toArray(){
-//        Publicacion []vector = new Publicacion[size];
-//        NodePublicacion nodePublicacion =head;
-//
-//
-//        for (int i = 0; i < size; i++) {
-//            vector[i] = nodePublicacion.getPublicacion();
-//            nodePublicacion = nodePublicacion.getNext();
-//
-//        }
-//        return  vector;
-//
-//
-//    }
+    public T [] toArray(Class c){
+        T []vector = (T[]) Array.newInstance(c,size);
+        NodeEjemplar nodePublicacion =head;
 
-    public Integer remove(int index){
-        Integer result= null;
+
+        for (int i = 0; i < size; i++) {
+            vector[i] = (T)nodePublicacion.getEjemplar();
+            nodePublicacion = nodePublicacion.getNext();
+
+        }
+        return  vector;
+
+
+    }
+
+
+    public  T get (int index){
+
+        NodeEjemplar <T>  node= head;
+        if (index <= 0 || isEmpty() || index> size()){
+            return null;
+        }
+
+        if (index==1)
+            return node.getEjemplar();
+
+        while (index>1){
+            node=node.getNext();
+            index--;
+        }
+
+
+
+        return node.getEjemplar();
+    }
+
+
+    public T remove(int index){
+        T result= null;
         if (isEmpty()|| index<0 || index >= size) {
             return null;
         }
         NodeEjemplar nodePublicacion =null;
         if (index==0){
-            //result= head.getEjemplar();
+            result= head.getEjemplar();
             head= head.getNext();
         }else {
-            NodeEjemplar aux = head;
-            NodeEjemplar aux2 = head.getNext();
+            NodeEjemplar<T> aux = head;
+            NodeEjemplar<T> aux2 = head.getNext();
 
             while (index>1){
                 aux= aux2;
                 aux2 = aux2.getNext();
                 index--;
             }
-            result = aux2.getEjemplar().getCodigo();
+            result = aux2.getEjemplar();
             aux.setNext(aux2.getNext());
+
+
+            if (index==size()){
+                tail= aux;
+
+
+            }
+            size--;
         }
-        size--;
+
+
 
 
 
