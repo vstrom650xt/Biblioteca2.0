@@ -1,6 +1,6 @@
 3 interfaces NO SE PUEDE INSTANCIAR UNA INTERFAZ | las interfaces se implementan
     -list(conjunto ordenado de elementos, acceso posicional, 2 formasa de iterar , el for  y iterator)=admite repeditos , hereda de colecion
-        *arrayList(basada en array) =
+        *arrayList(basada en array) = muchos metodos facil de trabajar
         *linkedList usar cuando va aceder y decrecer rapidamente
 
         si vas a modificar  las listas mientras la recorres tiene que ser con un iterator (se puede usar en todo tipo de listas)
