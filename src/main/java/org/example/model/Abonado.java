@@ -10,6 +10,7 @@ public class Abonado {
     public Abonado(String nombre, String DNI) {
         this.nombre = nombre;
         this.DNI = DNI;
+        alquilados = new LinkedList<>();
     }
 
     @Override
