@@ -2,12 +2,13 @@ package org.example;
 
 import org.example.listas.LinkedListPublicacion;
 import org.example.model.Abonado;
+import org.example.model.Ejemplar;
 import org.example.model.Libro;
 import org.w3c.dom.Node;
 
 public class Prueba {
     public static void main(String[] args) {
-
+//EN ESTE EJER GUARDADO VERSIONES EN GIT DE LAS LISTAS
 
 
         LinkedListPublicacion labiblios = new LinkedListPublicacion();
@@ -18,34 +19,12 @@ public class Prueba {
 
 //
         harryPotter.fillLista(5);
+        Ejemplar a = (Ejemplar) harryPotter.getListaEjemplares().get(3);
+        ((Ejemplar) harryPotter.getListaEjemplares().get(2)).addAbonado(ptt);
+        for (int i = 1; i <= harryPotter.getListSize(); i++) {
+            System.out.println("codigo de inicio "+harryPotter.getListaEjemplares().get(i));
 
-        //esto no entiendo porq no printea
-//        for (int i = 0; i < harryPotter.getListSize(); i++) {
-//            System.out.println(harryPotter.getListaEjemplares().getHead().getEjemplar());
-//            harryPotter.getListaEjemplares().getHead().getNext().getEjemplar().getCodigo();
-//
-//        }
-//        NodeEjemplar n=    harryPotter.getListaEjemplares().getHead();
-//
-//        for (int i = 0; i < harryPotter.getListSize(); i++) {
-//            System.out.println(n.getEjemplar());
-//            n=n.getNext();
-//
-//        }
-       // harryPotter.getListaEjemplares().getHead().getEjemplar().addAbonado(ptt);
-  //     System.out.println(harryPotter.getListaEjemplares().getHead().getEjemplar().getListAbonado());
-
-
-
-   //     System.out.println(harryPotter.getListaEjemplares().getHead().getEjemplar());
-
-//        for (int i = 0; i < harryPotter.getListSize(); i++) {
-//            System.out.println("codigo de inicio "+harryPotter.getListaEjemplares().get(i));
-//
-//        }
-        System.out.println("codigo de inicio "+harryPotter.getListaEjemplares().get(6));
-
-     //   System.out.println("tamano lista ejemplares "+harryPotter.getListaEjemplares().size());
+        }
 
 
 
