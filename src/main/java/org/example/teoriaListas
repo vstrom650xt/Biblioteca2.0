@@ -1,4 +1,15 @@
 3 interfaces NO SE PUEDE INSTANCIAR UNA INTERFAZ | las interfaces se implementan
+
+las 3 heredan de collection
+
+NO REFERENCIAR A LOS OBJETOS CON EL NOMBRE DE LA CLASE , USAR EN SU LUGAR EL NOMBRE DE LA INTERFAZ
+SI LO REFERENCIA AL OBJETO  LOS METODOS NO SERVIRAN PARA LAS DEMAS LISTAS , HAY QUE  HACER SIEMPRE
+List<String> miLIsta= new ArrayList(); --esto esta bien
+
+ArrayList<String> mmiLista = new ArrrayList(); --esto esta mall
+
+
+
     -list(conjunto ordenado de elementos, acceso posicional, 2 formasa de iterar , el for  y iterator)=admite repeditos , hereda de colecion
         *arrayList(basada en array) = muchos metodos facil de trabajar
         *linkedList usar cuando va aceder y decrecer rapidamente
@@ -55,7 +66,9 @@
 
 
 
-    -map(diccionario)=llave valor
+    -map(diccionario, USA INTERFAZ MAP)=llave valor (NO ES UNA COLECCION, ESTA ES LA DEL PUT PUSH)
+
+
 
 //LAMBDA
 

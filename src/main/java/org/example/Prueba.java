@@ -6,6 +6,10 @@ import org.example.model.Ejemplar;
 import org.example.model.Libro;
 import org.w3c.dom.Node;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
+
 public class Prueba {
     public static void main(String[] args) {
 //EN ESTE EJER GUARDADO VERSIONES EN GIT DE LAS LISTAS
@@ -19,12 +23,15 @@ public class Prueba {
 
 //
         harryPotter.fillLista(5);
-        Ejemplar a = (Ejemplar) harryPotter.getListaEjemplares().get(3);
+        Ejemplar a = harryPotter.getListaEjemplares().get(3);
         harryPotter.getListaEjemplares().get(2).addAbonado(ptt);
         for (int i = 1; i <= harryPotter.getListSize(); i++) {
             System.out.println("codigo de inicio "+harryPotter.getListaEjemplares().get(i));
 
         }
+
+ labiblios.addHead(harryPotter);
+        System.out.println(labiblios.getHead().getPublicacion());
 
 
 

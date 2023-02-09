@@ -34,9 +34,9 @@ public class Libro extends Publicacion  {
 
     }
 
-//    public LinkedListEjemplar addToList(Ejemplar e){
-//        lista.addHead(e);
-//        return lista;
+//    public LinkedList addToList(Libro e){
+//        listaEjemplares.addHead(e);
+//        return listaEjemplares;
 //    }
     public int getListSize() {
         return listaEjemplares.size();
@@ -51,6 +51,23 @@ public class Libro extends Publicacion  {
 
     public String getISBN() {
         return ISBN;
+    }
+
+
+    //2 booleanos
+
+
+    public boolean prestarLibro(Ejemplar ejemplar){
+        boolean prestado = false;
+
+
+        if (listaEjemplares.search(ejemplar)== -1  ){
+
+
+
+
+        }
+        return ;
     }
 
     @Override
