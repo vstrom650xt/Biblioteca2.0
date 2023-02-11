@@ -4,18 +4,26 @@ import org.example.listas.generics.LinkedList;
 
 public class Ejemplar {
 
+    private  boolean alquilado;
     private int codigo;
     // cambiar por lista
-    private LinkedList listAbonado;
+    private LinkedList<Abonado> listAbonado;
 
-//    private Libro libro;
 
     public Ejemplar(int codigo) {
         this.listAbonado = new LinkedList();
         this.codigo =codigo;
+        this.alquilado=false;
 
     }
+//devuel false
+    public boolean isAlquilado() {
+        return alquilado;
+    }
 
+    public void setAlquilado(boolean alquilado) {
+        this.alquilado = alquilado;
+    }
 
     public LinkedList getListAbonado() {
         return listAbonado;
@@ -35,13 +43,11 @@ public class Ejemplar {
     }
 
 
-
-
-
     @Override
     public String toString() {
         return "Ejemplar{" +
-                "codigo=" + codigo +
+                "alquilado=" + alquilado +
+                ", codigo=" + codigo +
                 ", listAbonado=" + listAbonado +
                 '}';
     }

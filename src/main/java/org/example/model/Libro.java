@@ -57,18 +57,18 @@ public class Libro extends Publicacion  {
     //2 booleanos
 
 
-    public boolean prestarLibro(Ejemplar ejemplar){
-        boolean prestado = false;
-
-
-        if (listaEjemplares.search(ejemplar)== -1  ){
-
-
-
-
-        }
-        return ;
-    }
+//    public boolean prestarLibro(Ejemplar ejemplar){
+//        boolean prestado = false;
+//
+//
+//        if (listaEjemplares.search(ejemplar)== -1  ){
+//
+//
+//
+//
+//        }
+//        return ;
+//    }
 
     @Override
     public String toString() {

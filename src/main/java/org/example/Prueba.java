@@ -16,7 +16,6 @@ public class Prueba {
 
 
         LinkedListPublicacion labiblios = new LinkedListPublicacion();
-
         Abonado ptt = new Abonado("pp","1234356");
         Libro harryPotter = new Libro("ppp",1323,false,
                 "yo","harryPotter","123113132");
@@ -30,12 +29,28 @@ public class Prueba {
 
         }
 
- labiblios.addHead(harryPotter);
+        labiblios.addHead(harryPotter);
         System.out.println(labiblios.getHead().getPublicacion());
+        ptt.addPrestamoToCustomer(harryPotter);
+        ptt.addPrestamoToCustomer(harryPotter);
+        ptt.addPrestamoToCustomer(harryPotter);
 
 
+        System.out.println(ptt.getAlquilados().size());
+
+   //     System.out.println(ptt.getAlquilados().get(2));
+
+        for (int i = 1; i <=ptt.getAlquilados().size() ; i++) {
+            System.out.println(ptt.getAlquilados().get(i));
 
 
+        }
+
+
+        for (int i = 1; i <= harryPotter.getListSize(); i++) {
+            System.out.println("codigo de inicio "+harryPotter.getListaEjemplares().get(i));
+
+        }
 
     }
 }

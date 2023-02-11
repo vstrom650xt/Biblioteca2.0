@@ -35,7 +35,7 @@ public class LinkedList <T>{
     }
 
 
-    public  void addHead(Ejemplar element){
+    public  void addHead(T element){
         NodeEjemplar nodeEjemplar = new NodeEjemplar(element);
         if (isEmpty()){
             head= nodeEjemplar;
@@ -46,7 +46,7 @@ public class LinkedList <T>{
         }
         size++;
     }
-    public  void addTail(Ejemplar element){
+    public  void addTail(T element){
         NodeEjemplar nodeEjemplar = new NodeEjemplar(element);
         if (isEmpty()){
             head= nodeEjemplar;
@@ -62,7 +62,7 @@ public class LinkedList <T>{
 
     // se ponen wrapper para evitar los nulls
 
-    public int search(Ejemplar element){
+    public int search(T element){
         int result = -1;
         if(isEmpty())
             return result;
@@ -92,7 +92,7 @@ public class LinkedList <T>{
 
     }
 
-
+// i >=1
     public  T get (int index){
 
         NodeEjemplar <T>  node= head;
