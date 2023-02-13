@@ -1,5 +1,7 @@
 package org.example.model;
 
+import org.example.listas.LinkedList;
+
 public abstract class Publicacion {
 
     private String editorial;
@@ -23,6 +25,7 @@ public abstract class Publicacion {
     public boolean isColor() {
         return color;
     }
+
 
 
     @Override

@@ -25,7 +25,7 @@ public class Libro extends Publicacion  {
 
 
 
-    public LinkedList fillLista(int num) {
+    public LinkedList<Ejemplar> fillLista(int num) {
         for (int i = 0; i <num; i++) {
            listaEjemplares.addTail( new Ejemplar(listaEjemplares.size()+1));
 
@@ -33,6 +33,8 @@ public class Libro extends Publicacion  {
         return listaEjemplares;
 
     }
+
+
 
 //    public LinkedList addToList(Libro e){
 //        listaEjemplares.addHead(e);

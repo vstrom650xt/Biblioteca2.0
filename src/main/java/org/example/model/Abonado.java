@@ -31,6 +31,18 @@ public class Abonado {
         return nombre;
     }
 
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setDNI(String DNI) {
+        this.DNI = DNI;
+    }
+
+    public String getDNI() {
+        return DNI;
+    }
+
     public LinkedList<Prestamo> addPrestamoToCustomer(Libro libro) {
         if (alquilados.size() >= 3) {
             System.out.println("ya tienes demasiados libro");

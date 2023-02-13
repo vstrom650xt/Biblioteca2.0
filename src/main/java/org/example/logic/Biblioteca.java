@@ -10,6 +10,7 @@ public class Biblioteca {
     public static LinkedList<Abonado> clientes = new LinkedList<>();
     public static Abonado abonado;
     public static Libro libro;
+    public static Publicacion p;
 
 
     public Biblioteca() {
@@ -19,12 +20,12 @@ public class Biblioteca {
 
 
     public static LinkedList<Publicacion> crearBiblioteca() {
-        biblioteca.addHead(new Libro("ppp", 1323, false,
+        biblioteca.addTail(new Libro("ppp", 1323, false,
                 "yo", "harryPotter", "123113132"));
-        biblioteca.addHead(new Libro("vvvvv", 456, true,
+        biblioteca.addTail(new Libro("vvvvv", 456, true,
                 "yo", "El señor de los anillos", "999999"));
-        biblioteca.addHead(new Periodico("EL PAIS", 10, true, "ultima hora"));
-        biblioteca.addHead(new Revista("Alfaguara", 123, false, "hola", "informativo", Periodicidad.MENSUAL));
+        biblioteca.addTail(new Periodico("EL PAIS", 10, true, "ultima hora"));
+        biblioteca.addTail(new Revista("Alfaguara", 123, false, "hola", "informativo", Periodicidad.MENSUAL));
 
         return biblioteca;
 
@@ -41,14 +42,27 @@ public class Biblioteca {
 
     public static void mostrarClientes() {
         for (int i = 1; i <= clientes.size(); i++) {
-            System.out.println(clientes.get(i));
+            System.out.println(i+" "+clientes.get(i));
         }
     }
 
     public static void mostrarPublicaciones() {
         for (int i = 1; i <= biblioteca.size(); i++) {
-            System.out.println(biblioteca.get(i));
+            System.out.println(i + " " + biblioteca.get(i));
+
         }
+    }
+
+    public static LinkedList<Publicacion> deleteBook(int posicion) {
+        biblioteca.remove(posicion - 1);
+        return biblioteca;
+
+    }
+
+    public static LinkedList<Abonado> deleteCustomer(int posicion) {
+        biblioteca.remove(posicion - 1);
+        return clientes;
+
     }
 
     public static void elegerPerfil() {
@@ -89,14 +103,17 @@ public class Biblioteca {
     public static void menuAdmin() {
 
         int a;
-        String b;
+        String b, c;
+        Periodicidad periodicidad = Periodicidad.SEMANAL;
         do {
             Scanner sc = new Scanner(System.in);
             System.out.println("1.dar de alta publicacion");
             System.out.println("2.dar de baja publicacion");
-            System.out.println("3.modificar datos clientes");
-            System.out.println("4.ver publicaciones");
-            System.out.println("5.volver");
+            System.out.println("3.dar de alta clientes");
+            System.out.println("4.dar de baja clientes");
+            System.out.println("5.modificar datos clientes");
+            System.out.println("6.ver publicaciones");
+            System.out.println("7.volver");
 
             a = sc.nextInt();
 
@@ -133,7 +150,17 @@ public class Biblioteca {
                     tematica = sc.next();
                     System.out.println("pon periodicidad 7  30  90");
                     int p = sc.nextInt();
-                    biblioteca.addHead(new Revista(editorial, numPag, color, nombre, tematica, Periodicidad.SEMANAL));
+                    if (p == 7) {
+
+                        periodicidad = Periodicidad.SEMANAL;
+                    } else if (p == 30) {
+                        periodicidad = Periodicidad.MENSUAL;
+
+                    } else if (p == 90) {
+                        periodicidad = Periodicidad.TRIMESTRA;
+
+                    }
+                    biblioteca.addHead(new Revista(editorial, numPag, color, nombre, tematica, periodicidad));
 
 
                 } else if (a == 3) {
@@ -148,18 +175,69 @@ public class Biblioteca {
 
                 }
 
-            } else if (a==2) {
-                
-            } else if (a==3) {
-                
-            }else if (a==4) {
+            } else if (a == 2) {  //borrar publica
                 mostrarPublicaciones();
+                System.out.println("pon numero q qieras borrar");
+                a = sc.nextInt();
+                deleteBook(a);
+                mostrarPublicaciones();
+                System.out.println();
+                System.out.println();
+
+            } else if (a == 3) {//alta cliente
+                System.out.println("cuantos clientes desea añadir");
+                a = sc.nextInt();
+                for (int i = 0; i < a; i++) {
+                    System.out.println("pon nombre");
+                    b = sc.next();
+                    System.out.println("pon dni");
+                    c = sc.next();
+                    new Abonado(b, c);
+                }
+
+
+            } else if (a == 4) { //borrar cliente
+                mostrarClientes();
+                System.out.println("pon numero q qieras borrar");
+                a = sc.nextInt();
+                deleteCustomer(a);
+                mostrarClientes();
+                a = sc.nextInt();
+            } else if (a == 5) {// modi cliente
+                mostrarClientes();
+                modificarCliente();
+                mostrarClientes();
+            } else if (a == 6) { //ver
+                mostrarPublicaciones();
+            } else if (a == 7) { //salir
+                elegerPerfil();
             }
 
 
         } while (a != -1);
     }
 
+    public static  LinkedList<Abonado> modificarCliente(){
+        Scanner sc = new Scanner(System.in);
+        String b;
+        System.out.println("introduce el dni ");
+        b=sc.next();
+        for (int i = 0; i < clientes.size(); i++) {
+            if (clientes.get(i).getDNI().equals(b)){
+                System.out.println("pon nuevo nombre");
+                b = sc.next();
+                abonado.setNombre(b);
+                System.out.println("pon nuevo dni");
+                b = sc.next();
+                abonado.setDNI(b);
+                return clientes;
+
+            }
+        }
+        System.out.println("el cliente no existe");
+
+        return  clientes;
+    }
     public static void menuCliente() {
         int a;
         String b;
