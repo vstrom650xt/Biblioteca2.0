@@ -1,6 +1,7 @@
 package org.example;
 
 import org.example.listas.LinkedListPublicacion;
+import org.example.logic.Biblioteca;
 import org.example.model.Abonado;
 import org.example.model.Ejemplar;
 import org.example.model.Libro;
@@ -21,6 +22,7 @@ public class Prueba {
                 "yo","harryPotter","123113132");
 
 //
+        
         harryPotter.fillLista(5);
         Ejemplar a = harryPotter.getListaEjemplares().get(3);
         harryPotter.getListaEjemplares().get(2).addAbonado(ptt);
@@ -52,5 +54,7 @@ public class Prueba {
 
         }
 
+
+        Biblioteca asdsd = new Biblioteca();
     }
 }

@@ -14,29 +14,46 @@ public class Abonado {
         alquilados = new LinkedList<>();
     }
 
-    public boolean stock( Libro libro) {
+    public boolean stock(Libro libro) {
         boolean available = true;
         for (int j = 1; j < libro.getListaEjemplares().size(); j++) {
             if (!libro.getListaEjemplares().get(j).isAlquilado())
-                 return available;
+                return available;
 
 
         }
 
-        available=false;
+        available = false;
         return available;
     }
 
-    public LinkedList addPrestamoToCustomer(Libro libro) {
+    public String getNombre() {
+        return nombre;
+    }
+
+    public LinkedList<Prestamo> addPrestamoToCustomer(Libro libro) {
         if (alquilados.size() >= 3) {
             System.out.println("ya tienes demasiados libro");
         } else {
             if (stock(libro))
                 alquilados.addTail(new Prestamo(libro));
+        }
+        return alquilados;
+    }
+
+
+    public LinkedList<Prestamo> devolverPrestamoToCustomer(Libro libro) {
+        if (alquilados.size() == 0) {
+            System.out.println("no tienes libros que devolver");
+        }
+
+        for (int i = 0; i < alquilados.size(); i++) {
+
 
         }
         return alquilados;
     }
+
 
     public LinkedList<Prestamo> getAlquilados() {
         return alquilados;

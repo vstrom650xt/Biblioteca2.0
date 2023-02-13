@@ -1,5 +1,6 @@
 package org.example.model;
 
+import org.example.listas.LinkedList;
 import org.example.model.Ejemplar;
 import org.example.model.Libro;
 
@@ -30,19 +31,22 @@ public class Prestamo {
         return fecha;
 
     }
-//busca que no hayan 0
+
+
+
+
+    //busca que no hayan 0
 
     public int consegirCodi(Libro libro) {
-int co=0;
+        int co;
         for (int i = 1; i < libro.getListaEjemplares().size(); i++) {
-            if (!libro.getListaEjemplares().get(i).isAlquilado()){
-                co= libro.getListaEjemplares().get(i).getCodigo();
+            if (!libro.getListaEjemplares().get(i).isAlquilado()) {
+                co = libro.getListaEjemplares().get(i).getCodigo();
                 libro.getListaEjemplares().get(i).setAlquilado(true);
                 return co;
             }
 
         }
-
 
 
         return 0;
