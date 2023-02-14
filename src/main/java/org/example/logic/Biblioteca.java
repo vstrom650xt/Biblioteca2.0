@@ -22,10 +22,16 @@ public class Biblioteca {
 
 
     public static LinkedList<Publicacion> crearBiblioteca() {
+        Libro libro1;
         biblioteca.addTail(new Libro("ppp", 1323, false,
                 "yo", "harryPotter", "123113132"));
+        libro1=(Libro)(biblioteca.get(1));
+        libro1.fillLista(0);
+
         biblioteca.addTail(new Libro("vvvvv", 456, true,
                 "yo", "El señor de los anillos", "999999"));
+        libro1=(Libro)(biblioteca.get(2));
+        libro1.fillLista(0);
         biblioteca.addTail(new Periodico("EL PAIS", 10, true, "ultima hora"));
         biblioteca.addTail(new Revista("Alfaguara", 123, false, "hola", "informativo", Periodicidad.MENSUAL));
 
@@ -49,20 +55,20 @@ public class Biblioteca {
     }
 
     public static void mostrarPublicaciones() {
-        for (int i = 1; i < biblioteca.size(); i++) {
+        for (int i = 1; i <= biblioteca.size(); i++) {
             System.out.println(i + " " + biblioteca.get(i));
 
         }
     }
 
     public static LinkedList<Publicacion> deleteBook(int posicion) {
-        biblioteca.remove(posicion - 1);
+        biblioteca.remove(posicion);
         return biblioteca;
 
     }
 
     public static LinkedList<Abonado> deleteCustomer(int posicion) {
-        biblioteca.remove(posicion - 1);
+        clientes.remove(posicion);
         return clientes;
 
     }
@@ -71,7 +77,7 @@ public class Biblioteca {
         Scanner sc = new Scanner(System.in);
         int a;
         System.out.println("1.Admin");
-        System.out.println("2. cliente");
+        System.out.println("2.cliente");
         a = sc.nextInt();
 
         if (a == 1) {
@@ -103,7 +109,7 @@ public class Biblioteca {
     }
 
     public static void menuAdmin() {
-
+        Libro libro2;
         int a;
         String b, c;
         Periodicidad periodicidad = Periodicidad.SEMANAL;
@@ -115,7 +121,8 @@ public class Biblioteca {
             System.out.println("4.dar de baja clientes");
             System.out.println("5.modificar datos clientes");
             System.out.println("6.ver publicaciones");
-            System.out.println("7.volver");
+            System.out.println("7.ver ejemplares de libro");
+            System.out.println("10.volver");
 
             a = sc.nextInt();
 
@@ -138,7 +145,9 @@ public class Biblioteca {
                     titulo = sc.next();
                     String ISBN;
                     ISBN = sc.next();
-                    biblioteca.addHead(new Libro(editorial, numPag, color, autor, titulo, ISBN));
+                    libro2=new Libro(editorial, numPag, color, autor, titulo, ISBN);
+                    libro2.fillLista(5);
+                    biblioteca.addHead(libro2);
 
                 } else if (a == 2) {
                     String editorial;
@@ -211,7 +220,15 @@ public class Biblioteca {
                 mostrarClientes();
             } else if (a == 6) { //ver
                 mostrarPublicaciones();
-            } else if (a == 7) { //salir
+            }else  if (a ==7){
+                mostrarPublicaciones();
+                System.out.println("pon numero del libro q qieres ver");
+                a=sc.nextInt();
+                libro=(Libro) biblioteca.get(a);
+                mostrarListaEjemplare(libro);
+
+
+            }  else if (a == 10) { //salir
                 elegerPerfil();
             }
 
@@ -219,6 +236,14 @@ public class Biblioteca {
         } while (a != -1);
     }
 
+    public  static void mostrarListaEjemplare(Libro libro){
+        for (int i = 1; i <= libro.getListaEjemplares().size(); i++) {
+            System.out.println("ejemplar " + libro.getListaEjemplares().get(i));
+        }
+
+
+
+    }
     ///////////////////lloookko
     public static LinkedList<Abonado> modificarCliente() {
         Scanner sc = new Scanner(System.in);
@@ -250,6 +275,8 @@ public class Biblioteca {
             Scanner sc = new Scanner(System.in);
             System.out.println("1.alquilar libro");
             System.out.println("2.devolver libro");
+            System.out.println("3.volver");
+
 
             a = sc.nextInt();
 
@@ -260,8 +287,12 @@ public class Biblioteca {
                 a = sc.nextInt();
                 publicacion = biblioteca.get(a);
                 libro = (Libro) publicacion;
+                if (libro.getListaEjemplares().isEmpty()){
+                    System.out.println("no quedan ejemplares");
+                } else{
+                    abonado.addPrestamoToCustomer(libro);
+                }
 
-                abonado.addPrestamoToCustomer(libro);
 
                 mostrarAlquilados();
 
@@ -275,9 +306,7 @@ public class Biblioteca {
                     mostrarAlquilados();
                     System.out.println("introduce el num ");
                     a = sc.nextInt();
-                    publicacion = biblioteca.get(a);
-                    libro = (Libro) publicacion;
-                    abonado.getAlquilados().remove(a-1);
+                    abonado.getAlquilados().remove(a);
                     mostrarAlquilados();
                 }
 

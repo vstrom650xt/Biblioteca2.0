@@ -15,13 +15,10 @@ public class Abonado {
 
     public boolean alquilado(Libro libro) {
         boolean available = false;
-        for (int j = 1; j < libro.getListaEjemplares().size(); j++) {
-            if (!libro.getListaEjemplares().get(j).isAlquilado())
-                return available;
-
-
-        }
-
+            for (int j = 1; j < libro.getListaEjemplares().size(); j++) {
+                if (!libro.getListaEjemplares().get(j).isAlquilado())
+                    return available;
+            }
         available = true;
         return available;
     }
@@ -46,8 +43,23 @@ public class Abonado {
         if (alquilados.size() >= 3) {
             System.out.println("ya tienes demasiados libro");
         } else {
+
+            int indece=1;
+            boolean encontrado = false;
             if (!alquilado(libro))
+              do {
+                  if(!libro.getListaEjemplares().get(indece).isAlquilado()){
+                      encontrado=true;
+                  }else{
+                   indece++;
+                  }
+              }while (indece<= libro.getListaEjemplares().size() && !encontrado);
+                if (encontrado){
+
+                    libro.getListaEjemplares().get(indece).addAbonado(this);
+                }
                 alquilados.addTail(new Prestamo(libro));
+
         }
         return alquilados;
     }

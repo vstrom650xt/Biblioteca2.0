@@ -100,6 +100,7 @@ public class LinkedList <T>{
         if (index==1)
             return node.getEjemplar();
 
+
         while (index>1){
             node=node.getNext();
             index--;
@@ -113,13 +114,14 @@ public class LinkedList <T>{
 
     public T remove(int index){
         T result= null;
-        if (isEmpty()|| index<0 || index >= size) {
+        if (isEmpty()|| index<0 || index > size) {
             return null;
         }
   //      NodeEjemplar nodePublicacion =null;
-        if (index==0){
+        if (index==1){
             result= head.getEjemplar();
             head= head.getNext();
+            size--;
         }else {
             NodeEjemplar<T> aux = head;
             NodeEjemplar<T> aux2 = head.getNext();
@@ -140,6 +142,7 @@ public class LinkedList <T>{
             }
             size--;
         }
+
         return result;
     }
 

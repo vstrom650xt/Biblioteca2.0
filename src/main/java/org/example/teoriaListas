@@ -73,3 +73,9 @@ ArrayList<String> mmiLista = new ArrrayList(); --esto esta mall
 //LAMBDA
 
 compareTor
+
+
+
+///////////////
+
+falta añadir el abonado a la lista de abonados del ejemplar
