@@ -33,8 +33,16 @@ public class Prestamo {
     }
 
 
+    public String devueltotDate() {
+        String fecha;
+        LocalDateTime now = LocalDateTime.now();
+        DateTimeFormatter forma = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        fecha = now.format(forma);
 
 
+        return fecha;
+
+    }
     //busca que no hayan 0
 
     public int consegirCodi(Libro libro) {

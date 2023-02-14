@@ -7,7 +7,7 @@ public class Libro extends Publicacion  {
     // si es estatico no me deja meterlo en el constructor
     private  String ISBN;
 
-    private LinkedList<Ejemplar> listaEjemplares;
+    private LinkedList<Ejemplar> listaEjemplares= new LinkedList<>();
 
 
     public Libro(String editorial, int numPag, boolean color, String autor, String titulo, String ISBN) {
@@ -15,7 +15,7 @@ public class Libro extends Publicacion  {
         this.autor = autor;
         this.titulo = titulo;
         this.ISBN =ISBN;
-        this.listaEjemplares = new LinkedList<>();//cuidao con el <>
+        this.listaEjemplares = fillLista(10);//cuidao con el <>
     }
 
 //ESPEFICAR Q TIPO DE LISTA DEVUELVE

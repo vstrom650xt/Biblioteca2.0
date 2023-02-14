@@ -10,7 +10,9 @@ public class Biblioteca {
     public static LinkedList<Abonado> clientes = new LinkedList<>();
     public static Abonado abonado;
     public static Libro libro;
-    public static Publicacion p;
+    public static Ejemplar ejemplar;
+
+    public static Publicacion publicacion;
 
 
     public Biblioteca() {
@@ -33,7 +35,7 @@ public class Biblioteca {
     }
 
     public static LinkedList<Abonado> crearClientes() {
-        clientes.addTail(new Abonado("jose", "123465"));
+        clientes.addTail(new Abonado("2", "123465"));
         clientes.addTail(new Abonado("helena", "7897845"));
         clientes.addTail(new Abonado("lol", "852147"));
         return clientes;
@@ -216,14 +218,16 @@ public class Biblioteca {
 
         } while (a != -1);
     }
-
+///////////////////lloookko
     public static  LinkedList<Abonado> modificarCliente(){
         Scanner sc = new Scanner(System.in);
         String b;
-        System.out.println("introduce el dni ");
-        b=sc.next();
-        for (int i = 0; i < clientes.size(); i++) {
-            if (clientes.get(i).getDNI().equals(b)){
+        int c;
+        System.out.println("introduce el num ");
+        c=sc.nextInt();
+
+        abonado=clientes.get(c);
+
                 System.out.println("pon nuevo nombre");
                 b = sc.next();
                 abonado.setNombre(b);
@@ -232,11 +236,10 @@ public class Biblioteca {
                 abonado.setDNI(b);
                 return clientes;
 
-            }
-        }
-        System.out.println("el cliente no existe");
 
-        return  clientes;
+  //      System.out.println("el cliente no existe");
+
+
     }
     public static void menuCliente() {
         int a;
@@ -245,19 +248,25 @@ public class Biblioteca {
             Scanner sc = new Scanner(System.in);
             System.out.println("1.alquilar libro");
             System.out.println("2.devolver libro");
-            System.out.println("3.comprar revista");
-            System.out.println("4.comprar periodico");
+
             a = sc.nextInt();
 
             if (a == 1) {
                 //mostrar libros
                 Biblioteca.mostrarPublicaciones();
-                Biblioteca.mostrarClientes();
-                System.out.println("escriba el nombre del titulo");
-                b = sc.next();
+                System.out.println("introduce el num ");
+                a= sc.nextInt();
+          //      ejemplar=libro.getListaEjemplares().get(a);//libro" is null
 
-                //  abonado.addPrestamoToCustomer();
+               publicacion= biblioteca.get(a);
+               libro= (Libro) publicacion;
 
+                abonado.addPrestamoToCustomer(libro);
+
+                mostrarAlquilados();
+
+
+            } else if (a==2) {
 
             }
 
@@ -268,4 +277,14 @@ public class Biblioteca {
     }
 
 
+    public  static  void mostrarAlquilados(){
+        for (int i = 1; i <= abonado.getAlquilados().size(); i++) {
+            System.out.println(abonado.getAlquilados().get(i));
+
+
+        }
+    }
+    public static LinkedList<Publicacion> getBiblioteca() {
+        return biblioteca;
+    }
 }

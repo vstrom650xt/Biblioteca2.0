@@ -1,7 +1,6 @@
 package org.example.model;
 
 import org.example.listas.LinkedList;
-import org.jetbrains.annotations.NotNull;
 
 public class Abonado {
     private String nombre, DNI;
@@ -14,7 +13,7 @@ public class Abonado {
         alquilados = new LinkedList<>();
     }
 
-    public boolean stock(Libro libro) {
+    public boolean alquilado(Libro libro) {
         boolean available = true;
         for (int j = 1; j < libro.getListaEjemplares().size(); j++) {
             if (!libro.getListaEjemplares().get(j).isAlquilado())
@@ -47,7 +46,7 @@ public class Abonado {
         if (alquilados.size() >= 3) {
             System.out.println("ya tienes demasiados libro");
         } else {
-            if (stock(libro))
+            if (!alquilado(libro))
                 alquilados.addTail(new Prestamo(libro));
         }
         return alquilados;
