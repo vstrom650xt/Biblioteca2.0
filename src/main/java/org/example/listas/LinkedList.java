@@ -1,8 +1,5 @@
 package org.example.listas;
 
-import org.example.model.Ejemplar;
-import org.w3c.dom.Node;
-
 import java.lang.reflect.Array;
 
 public class LinkedList <T>{
@@ -11,21 +8,21 @@ public class LinkedList <T>{
     private int size;
 
     public LinkedList(){
-
-
-
+        this.head = null;
+        this.tail = null;
+        this.size=0;
     }
     public int size(){
         return size;
 
     }
 //NodeEmplar
-    public NodeEjemplar getHead(){
+    public NodeEjemplar<T> getHead(){
         return head;
 
     }
 
-    public NodeEjemplar getTail(){
+    public NodeEjemplar<T> getTail(){
         return tail;
     }
 
@@ -36,7 +33,7 @@ public class LinkedList <T>{
 
 
     public  void addHead(T element){
-        NodeEjemplar nodeEjemplar = new NodeEjemplar(element);
+        NodeEjemplar<T> nodeEjemplar = new NodeEjemplar<>(element);
         if (isEmpty()){
             head= nodeEjemplar;
             tail= nodeEjemplar;
@@ -47,7 +44,7 @@ public class LinkedList <T>{
         size++;
     }
     public  void addTail(T element){
-        NodeEjemplar nodeEjemplar = new NodeEjemplar(element);
+        NodeEjemplar<T> nodeEjemplar = new NodeEjemplar<T>(element);
         if (isEmpty()){
             head= nodeEjemplar;
             tail= nodeEjemplar;
@@ -66,7 +63,7 @@ public class LinkedList <T>{
         int result = -1;
         if(isEmpty())
             return result;
-        NodeEjemplar nodeEjemplar = head;
+        NodeEjemplar<T> nodeEjemplar = head;
 
         for (int j = 0; j < size; j++) {
             if (nodeEjemplar.getEjemplar()==element)
@@ -79,7 +76,7 @@ public class LinkedList <T>{
 
     public T [] toArray(Class c){
         T []vector = (T[]) Array.newInstance(c,size);
-        NodeEjemplar nodePublicacion =head;
+        NodeEjemplar<T> nodePublicacion =head;
 
 
         for (int i = 0; i < size; i++) {
@@ -99,7 +96,7 @@ public class LinkedList <T>{
         if (index <= 0 || isEmpty() || index> size()){
             return null;
         }
-
+//falta algo para cubrir error
         if (index==1)
             return node.getEjemplar();
 
@@ -119,7 +116,7 @@ public class LinkedList <T>{
         if (isEmpty()|| index<0 || index >= size) {
             return null;
         }
-        NodeEjemplar nodePublicacion =null;
+  //      NodeEjemplar nodePublicacion =null;
         if (index==0){
             result= head.getEjemplar();
             head= head.getNext();
@@ -143,11 +140,6 @@ public class LinkedList <T>{
             }
             size--;
         }
-
-
-
-
-
         return result;
     }
 

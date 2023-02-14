@@ -1,0 +1,8 @@
+no se controlar el node is null
+
+
+        if (index==1)
+            return node.getEjemplar();
+
+
+por esto no me puede quedare con la lista vacia

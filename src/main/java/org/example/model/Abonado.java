@@ -14,7 +14,7 @@ public class Abonado {
     }
 
     public boolean alquilado(Libro libro) {
-        boolean available = true;
+        boolean available = false;
         for (int j = 1; j < libro.getListaEjemplares().size(); j++) {
             if (!libro.getListaEjemplares().get(j).isAlquilado())
                 return available;
@@ -22,7 +22,7 @@ public class Abonado {
 
         }
 
-        available = false;
+        available = true;
         return available;
     }
 
@@ -53,15 +53,12 @@ public class Abonado {
     }
 
 
-    public LinkedList<Prestamo> devolverPrestamoToCustomer(Libro libro) {
+    public LinkedList<Prestamo> devolverPrestamoToCustomer(int libro) {
         if (alquilados.size() == 0) {
-            System.out.println("no tienes libros que devolver");
+        }else {
+            alquilados.remove(libro);
         }
 
-        for (int i = 0; i < alquilados.size(); i++) {
-
-
-        }
         return alquilados;
     }
 
